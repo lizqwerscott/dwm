@@ -1515,7 +1515,7 @@ run(void)
 
 void
 runAutostart(void) {
-	system("cd ~/.config/scripts; ./autostart_blocking.sh");
+	system("cd ~/.dwm; ./autostart_blocking.sh");
 	system("cd ~/.config/scripts; ./autostart.sh &");
 }
 
