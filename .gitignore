@@ -1,0 +1,4 @@
+.ccls-cache
+dwm
+*.o
+patches
