@@ -69,6 +69,7 @@ static const char *termcmd[]  = { "st", NULL };
 static const char *trayercmd[] = {"/home/lizqwer/scripts/t-toggle.sh", NULL };
 static const char *browsercmd[] = {"google-chrome-stable", NULL};
 static const char *screenshotcmd[] = {"scrot ~/Pictures/save.png", NULL};
+static const char *emacscmd[] = {"emacs", NULL};
 
 
 static const Key keys[] = {
@@ -78,6 +79,7 @@ static const Key keys[] = {
     { MODKEY|ShiftMask,             XK_t,      spawn,          {.v = trayercmd } },
 	{ MODKEY|ShiftMask,             XK_b,      spawn,          {.v = browsercmd } },
 	{ MODKEY|ShiftMask,             XK_s,      spawn,          {.v = screenshotcmd } },
+	{ MODKEY|ShiftMask,             XK_i,      spawn,          {.v = emacscmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
