@@ -36,6 +36,7 @@ static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
 	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
+    { "flameshot",NULL,       NULL,       0,            1,           -1 },
 };
 
 /* layout(s) */
@@ -68,7 +69,6 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "st", NULL };
 static const char *trayercmd[] = {"/home/lizqwer/scripts/t-toggle.sh", NULL };
 static const char *browsercmd[] = {"google-chrome-stable", NULL};
-static const char *screenshotcmd[] = {"scrot ~/Pictures/save.png", NULL};
 static const char *emacscmd[] = {"emacs", NULL};
 
 
@@ -78,7 +78,8 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
     { MODKEY|ShiftMask,             XK_t,      spawn,          {.v = trayercmd } },
 	{ MODKEY|ShiftMask,             XK_b,      spawn,          {.v = browsercmd } },
-	{ MODKEY|ShiftMask,             XK_s,      spawn,          {.v = screenshotcmd } },
+    { MODKEY,                       XK_s,      spawn,          SHCMD("flameshot gui")},
+	{ MODKEY|ShiftMask,             XK_s,      spawn,          SHCMD("scrot ~/Pictures/ScreenShot/screen_shot_$(date +'%Y-%m-%d_%H-%M-%S').png") },
 	{ MODKEY|ShiftMask,             XK_i,      spawn,          {.v = emacscmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
