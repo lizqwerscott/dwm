@@ -53,13 +53,13 @@ static const Layout layouts[] = {
 };
 
 /* key definitions */
-/* #define MODKEY Mod4Mask */
-#define MODKEY Mod1Mask
+#define MODKEY Mod4Mask
+/* #define MODKEY Mod1Mask */
 #define TAGKEYS(KEY,TAG) \
-	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
-	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
-	{ MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
-	{ MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
+	{ Mod1Mask,                       KEY,      view,           {.ui = 1 << TAG} }, \
+	{ Mod1Mask|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
+	{ Mod1Mask|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
+	{ Mod1Mask|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
 
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
@@ -70,7 +70,7 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *roficmd[]  = { "rofi", "-show", "drun", NULL };
 static const char *rofiwindowcmd[]  = { "rofi", "-show", "window", NULL };
 static const char *rofisshcmd[]  = { "rofi", "-show", "ssh", NULL };
-static const char *termcmd[]  = { "st", NULL };
+static const char *termcmd[]  = { "kitty", NULL };
 static const char *trayercmd[] = {"/home/lizqwer/scripts/t-toggle.sh", NULL };
 static const char *browsercmd[] = {"google-chrome-stable", NULL};
 static const char *emacscmd[] = {"emacs", NULL};
@@ -81,22 +81,22 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_p,      spawn,          {.v = roficmd } },
     { MODKEY|ShiftMask,             XK_p,      spawn,          {.v = rofiwindowcmd } },
     { MODKEY,                       XK_n,      spawn,          {.v = rofisshcmd } },
-	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
+	{ Mod1Mask|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
     { MODKEY|ShiftMask,             XK_t,      spawn,          {.v = trayercmd } },
-	{ MODKEY|ShiftMask,             XK_b,      spawn,          {.v = browsercmd } },
+	{ Mod1Mask|ShiftMask,             XK_b,      spawn,          {.v = browsercmd } },
     { MODKEY,                       XK_s,      spawn,          SHCMD("flameshot gui")},
 	{ MODKEY|ShiftMask,             XK_s,      spawn,          SHCMD("scrot ~/Pictures/ScreenShot/screen_shot_$(date +'%Y-%m-%d_%H-%M-%S').png") },
-	{ MODKEY|ShiftMask,             XK_i,      spawn,          {.v = emacscmd } },
-	{ MODKEY,                       XK_b,      togglebar,      {0} },
-	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
-	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
+	{ Mod1Mask|ShiftMask,             XK_i,      spawn,          {.v = emacscmd } },
+	{ Mod1Mask,                       XK_b,      togglebar,      {0} },
+	{ Mod1Mask,                       XK_j,      focusstack,     {.i = +1 } },
+	{ Mod1Mask,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
 	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
-	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
-	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
+	{ Mod1Mask,                       XK_h,      setmfact,       {.f = -0.05} },
+	{ Mod1Mask,                       XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY,                       XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
-	{ MODKEY|ShiftMask,             XK_c,      killclient,     {0} },
+	{ Mod1Mask|ShiftMask,             XK_c,      killclient,     {0} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
