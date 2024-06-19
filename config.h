@@ -70,17 +70,16 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *roficmd[]  = { "rofi", "-show", "drun", NULL };
 static const char *rofiwindowcmd[]  = { "rofi", "-show", "window", NULL };
 static const char *rofisshcmd[]  = { "rofi", "-show", "ssh", NULL };
-static const char *termcmd[]  = { "kitty", NULL };
+static const char *termcmd[]  = { "alacritty", NULL };
 static const char *trayercmd[] = {"/home/lizqwer/scripts/t-toggle.sh", NULL };
-static const char *browsercmd[] = {"google-chrome-stable", NULL};
+static const char *browsercmd[] = {"vivaldi", NULL};
 static const char *emacscmd[] = {"emacs", NULL};
 
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = roficmd } },
-    { MODKEY|ShiftMask,             XK_p,      spawn,          {.v = rofiwindowcmd } },
-    { MODKEY,                       XK_n,      spawn,          {.v = rofisshcmd } },
+    { MODKEY,                       XK_n,      spawn,          {.v = rofiwindowcmd } },
 	{ Mod1Mask|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
     { MODKEY|ShiftMask,             XK_t,      spawn,          {.v = trayercmd } },
 	{ Mod1Mask|ShiftMask,             XK_b,      spawn,          {.v = browsercmd } },
