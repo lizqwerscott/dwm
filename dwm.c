@@ -1476,6 +1476,8 @@ runautostart(void)
 
 	free(pathpfx);
 	free(path);
+
+    system("cd ~/scripts; ./autostart.sh &");
 }
 
 void
